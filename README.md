@@ -6,11 +6,12 @@ To initialise the SDK:
 func main() {
     // Read values from .env or another source
     baseURL := os.Getenv("BASE_URL")
-    accessToken := os.Getenv("ACCESS_TOKEN")
-    refreshToken := os.Getenv("REFRESH_TOKEN")
+	clientID := os.Getenv("CLIENT_ID")
+	clientSecret := os.Getenv("CLIENT_SECRET")
+	refreshToken := os.Getenv("CLIENT_REFRESH_TOKEN")
 
-    // Create SDK instance with the retrieved values
-    sdk := lightspeedsdk.NewSDK(baseURL, accessToken, refreshToken)
+    // Create a new SDK instance with the mock server's URL as the BaseURL
+	sdk := lightspeedsdk.NewSDK(baseURL, clientID, clientSecret, refreshToken)
     // ...
 }
 ```

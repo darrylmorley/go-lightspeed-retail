@@ -51,7 +51,7 @@ func TestRefreshAccessToken(t *testing.T) {
 	clientSecret := os.Getenv("CLIENT_SECRET")
 	refreshToken := os.Getenv("CLIENT_REFRESH_TOKEN")
 	// Create a new SDK instance.
-	sdk := lightspeedsdk.NewSDK(baseURL, clientID, refreshToken)
+	sdk := lightspeedsdk.NewSDK(baseURL, clientID, clientSecret, refreshToken)
 
 	// Use the SDK's RefreshAccessToken method.
 	resp, err := sdk.RefreshAccessToken(refreshToken, clientID, clientSecret)
@@ -69,7 +69,7 @@ func TestDoGetCategories(t *testing.T) {
 	clientSecret := os.Getenv("CLIENT_SECRET")
 	refreshToken := os.Getenv("CLIENT_REFRESH_TOKEN")
 	// Create a new SDK instance with the mock server's URL as the BaseURL
-	sdk := lightspeedsdk.NewSDK(baseURL, clientID, refreshToken)
+	sdk := lightspeedsdk.NewSDK(baseURL, clientID, clientSecret, refreshToken)
 
 	resp, err := sdk.RefreshAccessToken(refreshToken, clientID, clientSecret)
 	if err != nil {

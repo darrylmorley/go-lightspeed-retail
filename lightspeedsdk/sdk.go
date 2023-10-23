@@ -15,6 +15,8 @@ type SDK struct {
 	BaseURL      string
 	AccessToken  string
 	RefreshToken string
+	ClientID     string
+	ClientSecret string
 	Client       *http.Client
 }
 
@@ -25,11 +27,13 @@ type RefreshResponse struct {
 	Scope       string `json:"scope"`
 }
 
-func NewSDK(baseURL, accessToken, refreshToken string) *SDK {
+func NewSDK(baseURL, refreshToken, clientID, clientSecret string) *SDK {
 	return &SDK{
 		BaseURL:      baseURL,
-		AccessToken:  accessToken,
+		AccessToken:  "",
 		RefreshToken: refreshToken,
+		ClientID:     clientID,
+		ClientSecret: clientSecret,
 		Client:       &http.Client{},
 	}
 }
