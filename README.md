@@ -26,3 +26,5 @@ Example, call Categories:
 	fmt.Printf("Categories: %+v\n", response)
 	fmt.Println("Number of categories:", len(response))
 ```
+
+Currently only DoGet is implemented.
