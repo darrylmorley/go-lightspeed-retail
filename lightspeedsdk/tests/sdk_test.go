@@ -79,13 +79,13 @@ func TestDoGetCategories(t *testing.T) {
 	fmt.Printf("New Access Token: %s\n", resp.AccessToken)
 
 	// Define a struct to hold the response data
-	var response []Category
+	var response Response
 
 	// Call the doGet function to fetch categories
-	err = sdk.DoGet("/Category", &response)
+	err = sdk.DoGet("/Category", &response.Category)
 	if err != nil {
 		t.Fatalf("Error fetching categories: %v", err)
 	}
 	fmt.Printf("Categories: %+v\n", response)
-	fmt.Println("Number of categories:", len(response))
+	fmt.Println("Number of categories:", len(response.Category))
 }
